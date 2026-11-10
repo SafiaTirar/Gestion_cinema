@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.ReservationController"
+            prefHeight="400.0" prefWidth="800.0">
+
+    <children>
+        <VBox spacing="10.0"
+              AnchorPane.topAnchor="10.0"
+              AnchorPane.leftAnchor="10.0"
+              AnchorPane.rightAnchor="10.0"
+              AnchorPane.bottomAnchor="10.0">
+
+            <!-- Formulaire -->
+            <HBox spacing="10.0">
+                <Label text="Séance:"/>
+                <ComboBox fx:id="seanceCombo" prefWidth="250"/>
+
+                <Label text="Client:"/>
+                <TextField fx:id="clientField" promptText="Nom du client" prefWidth="150"/>
+
+                <Label text="Places:"/>
+                <Spinner fx:id="nbPlacesSpinner" prefWidth="80"/>
+
+                <Button text="Réserver" onAction="#onReserver"/>
+                <Button text="Annuler réservation" onAction="#onAnnulerReservation"/>
+            </HBox>
+
+            <!-- Tableau des réservations -->
+            <TableView fx:id="reservationTable" prefHeight="260">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colFilm" text="Film" prefWidth="150"/>
+                    <TableColumn fx:id="colSalle" text="Salle" prefWidth="100"/>
+                    <TableColumn fx:id="colDateHeure" text="Date/Heure" prefWidth="200"/>
+                    <TableColumn fx:id="colClient" text="Client" prefWidth="150"/>
+                    <TableColumn fx:id="colPlaces" text="Places" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <!-- Zone de gestion + retour menu -->
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Button text="Modifier" onAction="#onModifierReservation"/>
+                <Button text="Supprimer" onAction="#onSupprimerReservation"/>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <Button text="Retour menu" onAction="#onRetourMenu"/>
+            </HBox>
+
+        </VBox>
+    </children>
+</AnchorPane>

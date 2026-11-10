@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.SalleController"
+            prefHeight="400.0" prefWidth="800.0">
+
+    <children>
+        <VBox spacing="10.0"
+              AnchorPane.topAnchor="10.0"
+              AnchorPane.leftAnchor="10.0"
+              AnchorPane.rightAnchor="10.0"
+              AnchorPane.bottomAnchor="10.0">
+
+            <Label text="Gestion des salles"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- Formulaire -->
+            <HBox spacing="10.0">
+                <Label text="Nom:"/>
+                <TextField fx:id="nomField" prefWidth="200" promptText="Salle 1, Salle VIP..."/>
+
+                <Label text="Capacité:"/>
+                <TextField fx:id="capaciteField" prefWidth="80" promptText="100"/>
+
+                <Button text="Créer" onAction="#onCreerSalle"/>
+                <Button text="Modifier" onAction="#onModifierSalle"/>
+                <Button text="Supprimer" onAction="#onSupprimerSalle"/>
+                <Button text="Retour menu" onAction="#onRetourMenu"/>
+            </HBox>
+
+            <!-- Tableau des salles -->
+            <TableView fx:id="salleTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colNom" text="Nom" prefWidth="250"/>
+                    <TableColumn fx:id="colCapacite" text="Capacité" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>

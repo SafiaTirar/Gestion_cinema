@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.MainMenuController"
+            prefHeight="320.0" prefWidth="520.0">
+
+    <children>
+        <VBox spacing="15.0"
+              alignment="CENTER"
+              AnchorPane.topAnchor="20.0"
+              AnchorPane.bottomAnchor="20.0"
+              AnchorPane.leftAnchor="20.0"
+              AnchorPane.rightAnchor="20.0">
+
+            <Label text="CineFX - Gestion du cinéma"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <Separator/>
+
+            <!-- Gestion Films -->
+            <Button text="Gestion des films"
+                    prefWidth="250"
+                    onAction="#openFilmView"/>
+
+            <!-- Gestion Salles -->
+            <Button text="Gestion des salles"
+                    prefWidth="250"
+                    onAction="#openSalleView"/>
+
+            <!-- Gestion Séances -->
+            <Button fx:id="btnSeances"
+                    text="Gestion des séances"
+                    prefWidth="250"
+                    onAction="#openSeanceView"/>
+
+            <!-- Gestion Réservations -->
+            <Button fx:id="btnReservations"
+                    text="Gestion des réservations"
+                    prefWidth="250"
+                    onAction="#openReservationView"/>
+
+            <Separator/>
+            <Button text="Recherche (film / date / genre)"
+                    prefWidth="250"
+                    onAction="#openRechercheView"/>
+
+            <!-- Rapport / Recettes -->
+            <Button text="Rapport (recettes)"
+                    prefWidth="250"
+                    onAction="#openRapportView"/>
+
+
+            <Button text="Quitter"
+                    prefWidth="150"
+                    onAction="#onQuitter"/>
+
+
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Connexion à la base MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/CineFX_project?useSSL=false&amp;serverTimezone=UTC
+        </property>
+        <property name="hibernate.connection.username">root</property>
+        <!-- si tu n'as pas de mot de passe, laisse vide comme ça -->
+        <property name="hibernate.connection.password"/>
+
+        <!-- Dialecte SQL pour MySQL (MySQL 8.x) -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Création / mise à jour automatique des tables -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Affichage des requêtes SQL dans la console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Gestion du pool de connexions -->
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- Mapping des entités -->
+        <mapping class="ma.cinefx.Model.Film"/>
+        <mapping class="ma.cinefx.Model.Salle"/>
+        <mapping class="ma.cinefx.Model.Tarif"/>
+        <mapping class="ma.cinefx.Model.Seance"/>
+        <mapping class="ma.cinefx.Model.Reservation"/>
+
+    </session-factory>
+</hibernate-configuration>

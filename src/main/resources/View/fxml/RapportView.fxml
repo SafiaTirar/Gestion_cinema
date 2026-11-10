@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.RapportController"
+            prefHeight="600.0" prefWidth="1200.0">
+
+    <children>
+        <VBox spacing="10"
+              AnchorPane.topAnchor="12" AnchorPane.leftAnchor="12"
+              AnchorPane.rightAnchor="12" AnchorPane.bottomAnchor="12">
+
+            <Label text="Rapport - Recettes (période / film / séance)"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- Filtres -->
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="10"/>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="10"/>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+
+                <Label text="Début:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dpStart" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Fin:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <DatePicker fx:id="dpEnd" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Film:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="filmCombo" promptText="Choisir un film..." GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Séance:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="seanceCombo" promptText="Choisir une séance..." GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <HBox spacing="10" GridPane.rowIndex="0" GridPane.columnIndex="4" GridPane.rowSpan="2">
+                    <Button text="Calculer" onAction="#onCalculer" prefWidth="90"/>
+                    <Button text="Reset" onAction="#onReset" prefWidth="70"/>
+                    <Button text="Retour" onAction="#onBack" prefWidth="70"/>
+                </HBox>
+            </GridPane>
+
+            <!-- Résultat -->
+            <HBox spacing="10">
+                <Label text="Recette totale :" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblTotal" text="0.0 €"/>
+                <Label text=" | Détail :" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblInfo" text="Choisis un filtre puis clique sur Calculer."/>
+            </HBox>
+
+            <!-- Tableau recettes par séance -->
+            <TableView fx:id="tableRecettes" prefHeight="430">
+                <columns>
+                    <TableColumn fx:id="colSeanceId" text="Séance ID" prefWidth="80"/>
+                    <TableColumn fx:id="colFilm" text="Film" prefWidth="180"/>
+                    <TableColumn fx:id="colGenre" text="Genre" prefWidth="120"/>
+                    <TableColumn fx:id="colSalle" text="Salle" prefWidth="120"/>
+                    <TableColumn fx:id="colDateHeure" text="Date / Heure" prefWidth="160"/>
+                    <TableColumn fx:id="colPrix" text="Prix (€)" prefWidth="90"/>
+                    <TableColumn fx:id="colPlaces" text="Places vendues" prefWidth="110"/>
+                    <TableColumn fx:id="colCalcul" text="Calcul recette" prefWidth="220"/>
+                    <TableColumn fx:id="colRecette" text="Recette (€)" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </children>
+</AnchorPane>

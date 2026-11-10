@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.PlanningController"
+            prefHeight="400.0" prefWidth="900.0">
+
+    <children>
+        <VBox spacing="10.0" AnchorPane.topAnchor="10.0"
+              AnchorPane.leftAnchor="10.0"
+              AnchorPane.rightAnchor="10.0"
+              AnchorPane.bottomAnchor="10.0">
+
+            <!-- Filtres -->
+            <HBox spacing="10.0">
+                <children>
+                    <Label text="Film:"/>
+                    <ComboBox fx:id="cbFilm" prefWidth="200.0"/>
+
+                    <Label text="Salle:"/>
+                    <ComboBox fx:id="cbSalle" prefWidth="150.0"/>
+
+                    <Label text="Date:"/>
+                    <DatePicker fx:id="dpDate"/>
+
+                    <Button fx:id="btnFiltrer" text="Filtrer" onAction="#onFiltrer"/>
+                    <Button text="Réinitialiser" onAction="#onReinitialiser"/>
+                </children>
+            </HBox>
+
+            <!-- Tableau des séances -->
+            <TableView fx:id="tableSeances" prefHeight="350.0">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50.0"/>
+                    <TableColumn fx:id="colFilm" text="Film" prefWidth="180.0"/>
+                    <TableColumn fx:id="colSalle" text="Salle" prefWidth="130.0"/>
+                    <TableColumn fx:id="colDateHeure" text="Date/Heure" prefWidth="200.0"/>
+                    <TableColumn fx:id="colTarif" text="Tarif" prefWidth="100.0"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </children>
+</AnchorPane>

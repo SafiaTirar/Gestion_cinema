@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.SeanceController"
+            prefHeight="400.0" prefWidth="900.0">
+
+    <children>
+        <VBox spacing="10.0"
+              AnchorPane.topAnchor="10.0"
+              AnchorPane.leftAnchor="10.0"
+              AnchorPane.rightAnchor="10.0"
+              AnchorPane.bottomAnchor="10.0">
+
+            <!-- Formulaire de création / édition -->
+            <HBox spacing="10.0">
+                <Label text="Film:"/>
+                <ComboBox fx:id="filmCombo" prefWidth="180"/>
+
+                <Label text="Salle:"/>
+                <ComboBox fx:id="salleCombo" prefWidth="120"/>
+
+                <Label text="Date:"/>
+                <DatePicker fx:id="datePicker"/>
+
+                <Label text="Heure (HH:mm):"/>
+                <TextField fx:id="heureField" promptText="20:30" prefWidth="70"/>
+
+                <Label text="Tarif (€):"/>
+                <TextField fx:id="tarifField" promptText="10.50" prefWidth="80"/>
+
+                <Button text="Créer" onAction="#onCreerSeance"/>
+                <Button text="Modifier" onAction="#onModifierSeance"/>
+                <Button text="Supprimer" onAction="#onSupprimerSeance"/>
+            </HBox>
+
+            <!-- Tableau des séances -->
+            <TableView fx:id="seanceTable" prefHeight="280">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colFilm" text="Film" prefWidth="180"/>
+                    <TableColumn fx:id="colSalle" text="Salle" prefWidth="100"/>
+                    <TableColumn fx:id="colDateHeure" text="Date / Heure" prefWidth="180"/>
+                    <TableColumn fx:id="colTarif" text="Tarif (€)" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <!-- Ligne du bas : bouton retour menu -->
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Button text="Retour menu" onAction="#onRetourMenu"/>
+            </HBox>
+
+        </VBox>
+    </children>
+</AnchorPane>

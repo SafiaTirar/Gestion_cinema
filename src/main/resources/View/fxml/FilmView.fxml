@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ma.cinefx.Controller.FilmController"
+            prefHeight="400.0" prefWidth="800.0">
+
+    <children>
+        <VBox spacing="10.0"
+              AnchorPane.topAnchor="10.0"
+              AnchorPane.leftAnchor="10.0"
+              AnchorPane.rightAnchor="10.0"
+              AnchorPane.bottomAnchor="10.0">
+
+            <Label text="Gestion des films"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- Formulaire -->
+            <HBox spacing="10.0">
+                <Label text="Titre:"/>
+                <TextField fx:id="titreField" prefWidth="200" promptText="Titre du film"/>
+
+                <Label text="Genre:"/>
+                <TextField fx:id="genreField" prefWidth="150" promptText="Action, Drame..."/>
+
+                <Label text="Durée (min):"/>
+                <TextField fx:id="dureeField" prefWidth="80" promptText="120"/>
+
+                <Button text="Créer" onAction="#onCreerFilm"/>
+                <Button text="Modifier" onAction="#onModifierFilm"/>
+                <Button text="Supprimer" onAction="#onSupprimerFilm"/>
+                <Button text="Retour menu" onAction="#onRetourMenu"/>
+            </HBox>
+
+            <!-- Tableau des films -->
+            <TableView fx:id="filmTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colTitre" text="Titre" prefWidth="250"/>
+                    <TableColumn fx:id="colGenre" text="Genre" prefWidth="150"/>
+                    <TableColumn fx:id="colDuree" text="Durée (min)" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>
